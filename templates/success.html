@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certificate Registered | CertiVerify</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .success-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #047857;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+
+        .certificate-id {
+            background: #eff6ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .certificate-id strong {
+            color: #1d4ed8;
+            font-size: 18px;
+        }
+
+        .qr-code {
+            width: 220px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .buttons {
+            margin-top: 25px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 13px 22px;
+            margin: 5px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .verify {
+            background: #1d4ed8;
+            color: white;
+        }
+
+        .home {
+            border: 1px solid #1d4ed8;
+            color: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="success-icon">
+                ✅
+            </div>
+
+            <h1>Certificate Registered Successfully!</h1>
+
+            <p class="message">
+                Your certificate has been securely registered
+                in the verification system.
+            </p>
+
+            <div class="certificate-id">
+                <p>Certificate ID</p>
+                <strong>{{ certificate_id }}</strong>
+            </div>
+
+            <h3>📱 Certificate QR Code</h3>
+
+            <img
+                src="{{ url_for('static', filename=certificate_id + '.png') }}"
+                alt="Certificate QR Code"
+                class="qr-code"
+            >
+
+            <p class="message">
+                Scan this QR code to verify the certificate instantly.
+            </p>
+
+            <div class="buttons">
+
+                <a href="/verify/{{ certificate_id }}" class="verify">
+                    🔍 Verify Certificate
+                </a>
+
+                <a href="/" class="home">
+                    ← Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

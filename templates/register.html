@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register Certificate | CertiVerify</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        nav {
+            height: 70px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1d4ed8;
+        }
+
+        .logo span {
+            color: #111827;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .heading p {
+            color: #6b7280;
+        }
+
+        .form-card {
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .form-title {
+            margin-bottom: 25px;
+            font-size: 20px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input {
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #1d4ed8;
+        }
+
+        .button-area {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        button {
+            background: #1d4ed8;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e40af;
+        }
+
+        .note {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eff6ff;
+            border-radius: 8px;
+            color: #1e40af;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .input-group.full {
+                grid-column: auto;
+            }
+
+            .form-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            Certi<span>Verify</span>
+        </div>
+
+        <a href="/">← Back to Home</a>
+    </nav>
+
+    <div class="container">
+
+        <div class="heading">
+            <h1>Register Certificate</h1>
+            <p>Enter the certificate holder's details below</p>
+        </div>
+
+        <div class="form-card">
+
+            <h2 class="form-title">Certificate Details</h2>
+
+            <form method="POST" action="/register">
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text"
+                            name="student_name"
+                            placeholder="Enter full name"
+                            required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email"
+                               name="email"
+                               placeholder="Enter email address"
+                               required>
+                    </div>
+                    <div class="input-group">
+                        <label>Register Number</label>
+                        <input type="text"
+                               name="register_number"
+                               placeholder="Enter register number"
+                               required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Course / Program</label>
+                        <input type="text"
+                               name="course"
+                               placeholder="Enter course name"
+                               required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Institution</label>
+                        <input type="text"
+                               name="college_name"
+                               placeholder="Enter institution name"
+                               required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Issue Date</label>
+                        <input type="date"
+                               name="issue_date"
+                               required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Certificate ID</label>
+                        <input type="text"
+                               placeholder="Auto generated"
+                               disabled>
+                    </div>
+
+                </div>
+
+                <div class="note">
+                    🔐 Certificate ID and QR code will be generated
+                    automatically after registration.
+                </div>
+
+                <div class="button-area">
+                    <button type="submit">
+                        Generate Certificate
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

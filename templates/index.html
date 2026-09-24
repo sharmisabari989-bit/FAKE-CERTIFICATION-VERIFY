@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CertiVerify | Certificate Verification System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 70px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1d4ed8;
+        }
+
+        .logo span {
+            color: #111827;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            margin-left: 30px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #1d4ed8;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 8%;
+            background: linear-gradient(135deg, #eff6ff, #ffffff);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .hero h1 span {
+            color: #1d4ed8;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .primary {
+            background: #1d4ed8;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #1e40af;
+        }
+
+        .secondary {
+            background: white;
+            color: #1d4ed8;
+            border: 1px solid #1d4ed8;
+        }
+
+        .secondary:hover {
+            background: #eff6ff;
+        }
+
+        /* HERO CARD */
+
+        .verification-card {
+            width: 350px;
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.10);
+        }
+
+        .shield {
+            width: 70px;
+            height: 70px;
+            background: #dbeafe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .verification-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .verification-card p {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .status {
+            background: #ecfdf5;
+            color: #047857;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* FEATURES */
+
+        .features {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 40px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #d1d5db;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            nav a {
+                margin-left: 10px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+        <div class="logo">
+            Certi<span>Verify</span>
+        </div>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="#">About</a>
+            <a href="#">How It Works</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                🔐 Secure Certificate Verification
+            </div>
+
+            <h1>
+                Verify Certificates
+                <span>Instantly & Securely</span>
+            </h1>
+
+            <p>
+                A secure digital certificate verification system that
+                helps institutions and organizations verify the
+                authenticity of certificates using unique certificate
+                IDs and QR codes.
+            </p>
+
+            <div class="buttons">
+
+                <a href="/register" class="btn primary">
+                    📝 Register Certificate
+                </a>
+
+                <a href="/verify" class="btn secondary">
+                    🔍 Verify Certificate
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- VERIFICATION CARD -->
+
+        <div class="verification-card">
+
+            <div class="shield">
+                🛡️
+            </div>
+
+            <h2>Certificate Verification</h2>
+
+            <p>
+                Scan the QR code or enter the certificate ID
+                to verify whether a certificate is genuine.
+            </p>
+
+            <div class="status">
+                ✓ Secure Verification System
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <h2>How Our System Works</h2>
+
+        <p class="subtitle">
+            Simple, secure and reliable certificate verification
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">📝</div>
+
+                <h3>Register Certificate</h3>
+
+                <p>
+                    Authorized users can enter certificate details
+                    and securely store them in the database.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">📱</div>
+
+                <h3>QR Code Verification</h3>
+
+                <p>
+                    Each certificate can be associated with a
+                    unique QR code for quick verification.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">✅</div>
+
+                <h3>Instant Verification</h3>
+
+                <p>
+                    The system checks the certificate details
+                    against the database and displays the result.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 CertiVerify. Certificate Verification System.
+        </p>
+
+    </footer>
+
+</body>
+</html>
